@@ -1,0 +1,200 @@
+import random
+
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
+end_game= False
+hangman_words = [
+    "python",
+    "hangman",
+    "programming",
+    "development",
+    "algorithm",
+    "function",
+    "variable",
+    "exception",
+    "syntax",
+    "debugging",
+    "compiler",
+    "interpreter",
+    "framework",
+    "library",
+    "parameter",
+    "iteration",
+    "recursion",
+    "polymorphism",
+    "inheritance",
+    "encapsulation",
+    "abstraction",
+    "interface",
+    "constructor",
+    "destructor",
+    "attribute",
+    "method",
+    "module",
+    "package",
+    "string",
+    "integer",
+    "boolean",
+    "float",
+    "list",
+    "tuple",
+    "dictionary",
+    "set",
+    "loop",
+    "conditional",
+    "statement",
+    "expression",
+    "operator",
+    "constant",
+    "class",
+    "object",
+    "instance",
+    "namespace",
+    "scope",
+    "closure",
+    "decorator",
+    "generator",
+    "comprehension",
+    "iterator",
+    "lambda",
+    "asynchronous",
+    "multithreading",
+    "multiprocessing",
+    "concurrency",
+    "parallelism",
+    "dataframe",
+    "database",
+    "query",
+    "transaction",
+    "index",
+    "join",
+    "normalization",
+    "denormalization",
+    "schema",
+    "relational",
+    "nonrelational",
+    "sql",
+    "nosql",
+    "api",
+    "endpoint",
+    "request",
+    "response",
+    "authentication",
+    "authorization",
+    "encryption",
+    "decryption",
+    "hashing",
+    "serialization",
+    "deserialization",
+    "data",
+    "model",
+    "training",
+    "validation",
+    "testing",
+    "accuracy",
+    "precision",
+    "recall",
+    "f1score",
+    "confusionmatrix",
+    "regression",
+    "classification",
+    "clustering",
+    "dimensionality",
+    "reduction",
+    "overfitting",
+    "underfitting",
+    "crossvalidation",
+    "feature",
+    "scaling",
+    "normalization",
+    "standardization",
+    "augmentation",
+    "augmentation",
+    "pipeline",
+    "visualization",
+    "exploration"
+]
+
+chosen = random.choice(hangman_words)
+# print(chosen)
+lives = 6
+display = []
+# converting the words into blanks
+for k in range(len(chosen)):
+     display += "_"
+print(display)
+#  Loop for asking the player for guessed input
+while not end_game :
+    guess = input("Guess the letter: ")
+    for i in range (len(chosen)):
+        character = chosen[i]
+        if character == guess:
+            display[i] = character
+    print(display)
+#  Keeping a  track on the player's lives
+    if guess not in chosen:
+        lives -= 1
+    if lives ==0:
+        end_game = True
+        print("YOU LOOSEE:(")
+
+    if "_" not in display:
+        end_game=True
+        print("YOUU WIN!!!")
+
+    print(stages[lives])
