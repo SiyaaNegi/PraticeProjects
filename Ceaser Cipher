@@ -1,0 +1,46 @@
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+            'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+            'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+Rule = input("Enter 'Encode' to encrypt, type 'decode' to decrypt: \n ")
+
+Message = input("What is the message? \n").lower()
+Shift = int(input("Give the shift value: \n"))
+
+# Create the 'encrypt' function, shift each letter of the 'text' forwards  in the alphabet by the shift amount and print the encrypted text
+# def encrypt(simple_text, shift_value):
+#     Cipher_txt= ""
+#     for character in simple_text:
+#        idx_num = alphabet.index(character)
+#        new_idx_num = idx_num+shift_value
+#        New_char = alphabet[new_idx_num]
+#        Cipher_txt += New_char
+#     print(f"The encrypted message is: {Cipher_txt}")
+#
+# #the 'decrypt' function, shift each letter of the 'text' *backwards* in the alphabet by the shift amount and print the decrypted text
+# def decrypt(Cipher_txt, shift_value):
+#     simple_txt = ""
+#     for character in Cipher_txt:
+#         idx_number= alphabet.index(character)
+#         new_idx = idx_number - shift_value
+#         simple_txt += new_idx
+#     print(f"The decrypted message is: {simple_txt} ")
+#
+# if Rule == "encode":
+#     encrypt(simple_text=Message, shift_value=Shift)
+# elif Rule == "decode":
+#     decrypt(Cipher_txt= Message, shift_value= Shift)
+
+#---------------------------ORGANISED FUNCTION-------------------------------------------
+
+def Ceaser(simple_txt,shift_value, Direction):
+    Cipher_txt = ""
+    if Direction == "decode":
+        shift_value *= -1
+    for character in simple_txt:
+        idx_num = alphabet.index(character)
+        new_idx_num = idx_num + shift_value
+        Cipher_txt += alphabet[new_idx_num]
+    print(f"The {Direction} message is: {Cipher_txt}")
+
+Ceaser(simple_txt=Message,shift_value= Shift, Direction= Rule)
