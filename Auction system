@@ -1,0 +1,29 @@
+from replit import clear
+
+bids = {}
+bidding = False
+#Function to find the highest bidder
+def highest_bidder(bidding_record):
+    highest_bid = 0
+    winner = ""
+    for name in bidding_record:
+        bid_price = bidding_record[name]
+        if bid_price > highest_bid:
+            highest_bid = bid_price
+            winner = name
+    print(f"The winner is {winner} with a bid of Rs {highest_bid}")
+
+while not bidding:
+    bidder = input("Enter your name: ")
+    price = int(input("Your bid is?: Rs"))
+    bids[bidder] = price
+    should_continue = input("Are there any other bidders? 'yes'or 'no'. ")
+    if should_continue == "no":
+        bidding = True
+        highest_bidder(bids)
+
+    elif should_continue == "yes":
+        clear()
+
+
+
