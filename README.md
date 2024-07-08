@@ -5,5 +5,6 @@
    > HANGAN Game 
    > Ceaser Cipher
    > Auction System
-
+# Intermediate Level Projects:
+   > Coffee Machine 
 
